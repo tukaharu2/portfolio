@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# 🖼 similar_image_project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 概要
+本プロジェクトは、類似画像検索Webアプリケーションです。  
+**主な処理の流れは以下の通りです。**
 
-## Available Scripts
+1. **事前処理**  
+   - Open Images V7からランダムに取得した2000枚の画像に対し、**DINOv2** を用いて埋め込みベクトルを作成。
+   - 同時に画像のサムネイル（小さい画像）を生成。
+   - オリジナル画像とサムネイルはAWS S3にアップロード。
 
-In the project directory, you can run:
+2. **データ保存**  
+   - 生成した埋め込みベクトルとS3上の画像URLをAWS DynamoDBに保存。
 
-### `npm start`
+3. **検索処理**  
+   - フロントエンド（React）で画像をアップロードすると、バックエンドでプレイ用のサムネイルと埋め込みベクトルが作成される。
+   - DynamoDBからランダムに200枚分のデータを選出し、アップロード画像とのコサイン類似度を計算。
+   - 画像URLと類似度の情報をフロントに送信。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. **表示とプレイ**  
+   - フロントでは、送信されたURLをもとにS3からサムネイル画像をダウンロード。
+   - Matter.jsを用いて、類似度に応じた物理特性（引力・斥力）を付与したサムネイルを描画し、簡単なアプリとしてプレイ可能にします。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. **デプロイ**  
+   - AWS Copilotを使用し、バックエンドサービスと連携するS3バケット、DynamoDBテーブルを自動で作成・管理しています。
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 処理の流れ（フローチャート）
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```mermaid
+flowchart TD
+    A[Open Images V7から<br>2000枚の画像取得] --> B[DINOv2による<br>埋め込みベクトル作成]
+    B --> C[サムネイル画像作成]
+    C --> D[AWS S3にアップロード<br>(オリジナル＆サムネイル)]
+    D --> E[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
+    E --> F[フロントエンド (React)<br>で画像アップロード]
+    F --> G[バックエンドで<br>プレイ用データ作成]
+    G --> H[DynamoDBから<br>ランダム200枚データ取得]
+    H --> I[アップロード画像との<br>コサイン類似度計算]
+    I --> J[画像URLと類似度を<br>フロントに送信]
+    J --> K[フロントでS3から<br>サムネイル画像ダウンロード]
+    K --> L[Matter.jsで<br>物理シミュレーション描画]
+    L --> M[アプリプレイ開始]
+app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
