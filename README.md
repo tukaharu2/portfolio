@@ -38,7 +38,7 @@
   - 埋め込みベクトルを用いた画像検索
 - **使用技術**:
   - `Python`, `Flask/FastAPI`
-  - `CNN`, `VGG`, `ResNet` など
+  - `DINOv2`, など
 
 ---
 
