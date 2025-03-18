@@ -1,0 +1,23 @@
+{
+  "Parameters": {
+    "AddonsTemplateURL": "",
+    "AppName": "moji-app",
+    "ArtifactKeyARN": "arn:aws:kms:ap-northeast-1:733124565192:key/fcfa9b5d-d4cc-4922-bd13-265f3255f428",
+    "ContainerImage": "",
+    "ContainerPort": "5000",
+    "EnvFileARN": "",
+    "EnvName": "mojitest",
+    "LogRetention": "30",
+    "TargetContainer": "backend",
+    "TargetPort": "5000",
+    "TaskCPU": "2048",
+    "TaskCount": "1",
+    "TaskMemory": "12288",
+    "WorkloadName": "backend"
+  },
+  "Tags": {
+    "copilot-application": "moji-app",
+    "copilot-environment": "mojitest",
+    "copilot-service": "backend"
+  }
+}
