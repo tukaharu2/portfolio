@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# 🎙 transcribe_project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 概要
+transcribe_projectは、音声データをアップロードすると文字起こしを行い、結果を画面に表示し、PDFとしてダウンロード可能なWebアプリケーションです。  
+主な文字起こしエンジンとしてOpenAIの**Whisper**を使用しており、以下の3種類のモデルサイズから選択できます：
+- **tiny**
+- **small**
+- **turbo**
 
-## Available Scripts
+また、2人以上の音声が重なっている場合、ユーザーが同時話者数を「2」と指定すると、**Asteroid**を利用して音声分離を行い、各話者ごとに文字起こしを実施します。
 
-In the project directory, you can run:
+## 特徴
+- **音声アップロード & 文字起こし**  
+  音声ファイルをアップロードすると、文字起こし結果が画面上に表示されます。
 
-### `npm start`
+- **PDFダウンロード**  
+  文字起こし結果をPDFファイルとして保存・ダウンロード可能です。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **モデル選択**  
+  Whisperの3つのモデルサイズ（tiny, small, turbo）から選択し、処理内容を調整できます。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **音声分離機能**  
+  複数話者が混在する音声の場合、ユーザーが指定した話者数に基づいてAsteroidを用いた音声分離が実行されます。
 
-### `npm test`
+- **AWS Copilotでデプロイ**  
+  現在、AWS Copilotを利用してバックエンドサービスをデプロイしているため、推論に時間がかかる場合があります。将来的にはGPUインスタンスへの移行を検討中です。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **シンプルなフロントエンド**  
+  フロントエンドはStreamlitを使用しており、シンプルかつ直感的なUIを提供します。
 
-### `npm run build`
+## 利用方法
+1. **リポジトリのクローンまたはZIPダウンロード**  
+   リポジトリをクローン、もしくはZIPファイルとしてダウンロードしてください。
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **依存関係のインストール**  
+   プロジェクトフォルダ内の `requirements.txt` を参考に、必要なライブラリをインストールしてください。  
+   例:
+   ```bash
+   pip install -r requirements.txt
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
