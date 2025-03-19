@@ -44,4 +44,4 @@ flowchart TD
     J --> K[フロントでS3から<br>サムネイル画像ダウンロード]
     K --> L[Matter.jsで<br>物理シミュレーション描画]
     L --> M[アプリプレイ開始]
-app/docs/troubleshooting#npm-run-build-fails-to-minify] https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
