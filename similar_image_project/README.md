@@ -1,6 +1,6 @@
 # similar_image_project
 
-## 概要
+## Overview
 本プロジェクトは、類似画像検索Webアプリケーションです。  
 [similar_image_project アプリ](https://your-app-url.example.com)
 ##
