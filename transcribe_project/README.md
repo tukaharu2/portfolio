@@ -1,4 +1,4 @@
-# 🎙 transcribe_project
+# transcribe_project
 
 ## 概要
 transcribe_projectは、音声データをアップロードすると文字起こしを行い、結果を画面に表示し、PDFとしてダウンロード可能なWebアプリケーションです。  
