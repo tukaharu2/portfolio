@@ -53,5 +53,5 @@ flowchart TD
     K[S3からオリジナル画像ダウンロード] --> M
     M --> N[バックエンドで画像処理]
     N --> O[AWS S3にアップロード<br>オリジナル＆サムネイル]
-    N --> P[[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
+    N --> P[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
 ```
