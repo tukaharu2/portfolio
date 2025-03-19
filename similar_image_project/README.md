@@ -34,7 +34,7 @@
 flowchart TD
     A[Open Images V7から<br>2000枚の画像取得] --> B[DINOv2による<br>埋め込みベクトル作成]
     B --> C[サムネイル画像作成]
-    C --> D[AWS S3にアップロード<br>(オリジナル&ampサムネイル)]
+    C --> D[AWS S3にアップロード<br>(オリジナル&amp;サムネイル)]
     D --> E[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
     E --> F[フロントエンド (React)<br>で画像アップロード]
     F --> G[バックエンドで<br>プレイ用データ作成]
