@@ -3,6 +3,7 @@
 ## 概要
 本プロジェクトは、類似画像検索Webアプリケーションです。  
 [similar_image_project アプリ](https://your-app-url.example.com)
+##
 **主な処理の流れは以下の通りです。**
 
 1. **事前処理**  
