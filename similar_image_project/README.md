@@ -33,9 +33,10 @@
 ```mermaid
 flowchart TD
     A[Open Images V7から<br>2000枚の画像取得] --> B[DINOv2による<br>埋め込みベクトル作成]
-    B --> C[サムネイル画像作成]
+    A --> C[サムネイル画像作成]
     C --> D[AWS S3にアップロード<br>オリジナル＆サムネイル]
     D --> E[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
+    B --> E
     E --> F[フロントエンド React \nで画像アップロード]
     F --> G[バックエンドで<br>プレイ用データ作成]
     G --> H[DynamoDBから<br>ランダム200枚データ取得]
