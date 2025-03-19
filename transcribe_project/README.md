@@ -1,7 +1,9 @@
 # transcribe_project
 
 ## 概要
-transcribe_projectは、音声データをアップロードすると文字起こしを行い、結果を画面に表示し、PDFとしてダウンロード可能なWebアプリケーションです。  
+本projectは、音声データをアップロードすると文字起こしを行い、結果を画面に表示し、PDFとしてダウンロード可能なWebアプリケーションです。  
+[similar_image_project アプリ](https://your-app-url.example.com)
+##
 主な文字起こしエンジンとしてOpenAIの**Whisper**を使用しており、以下の3種類のモデルサイズから選択できます：
 - **tiny**
 - **small**
