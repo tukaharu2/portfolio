@@ -1,4 +1,4 @@
-# date_analysis_project
+# data_analysis_project
 
 ## Overview
 このプロジェクトは、SNS上のデータを前処理、可視化、分析するためのNotebookです。  
