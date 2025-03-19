@@ -35,7 +35,7 @@ flowchart TD
     A[Open Images V7から<br>2000枚の画像取得] --> B[DINOv2による<br>埋め込みベクトル作成]
     A --> C[サムネイル画像作成]
     C --> D[AWS S3にアップロード<br>オリジナル＆サムネイル]
-    D --> E[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
+    D --> E[AWS DynamoDBにURLと<br>埋め込みベクトル保存]
     B --> E
 
 ```
@@ -54,5 +54,5 @@ flowchart TD
     Q[S3からオリジナル画像ダウンロード] --> M
     M --> N[バックエンドで画像処理]
     N --> O[AWS S3にアップロード<br>オリジナル＆サムネイル]
-    N --> P[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
+    N --> P[AWS DynamoDBにURLと<br>埋め込みベクトル保存]
 ```
