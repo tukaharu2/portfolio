@@ -34,9 +34,9 @@
 flowchart TD
     A[Open Images V7から<br>2000枚の画像取得] --> B[DINOv2による<br>埋め込みベクトル作成]
     B --> C[サムネイル画像作成]
-    C --> D[サムネイル画像作成]
+    C --> D[AWS S3にアップロード<br>オリジナル＆サムネイル]
     D --> E[AWS DynamoDBに<br>URLと埋め込みベクトル保存]
-    E --> F[フロントエンドReact\nで画像アップロード]
+    E --> F[フロントエンド React \nで画像アップロード]
     F --> G[バックエンドで<br>プレイ用データ作成]
     G --> H[DynamoDBから<br>ランダム200枚データ取得]
     H --> I[アップロード画像との<br>コサイン類似度計算]
@@ -44,4 +44,4 @@ flowchart TD
     J --> K[フロントでS3から<br>サムネイル画像ダウンロード]
     K --> L[Matter.jsで<br>物理シミュレーション描画]
     L --> M[アプリプレイ開始]
-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+app/docs/troubleshooting#npm-run-build-fails-to-minify] https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
