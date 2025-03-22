@@ -83,13 +83,18 @@ const styles = {
         height: "100vh",
     },
     loadingText: {
-        fontSize: "20px",
+        fontSize: "25px",
+        color: "#00ff33",
+        backgroundColor: "rgba(0, 0, 0, 0.5)", 
         marginBottom: "20px",
-    },
+        padding: "10px",
+        borderRadius: "5px"
+    },        
     spinner: {
         border: "4px solid rgba(0,0,0,0.1)",
         width: "36px",
         height: "36px",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
         borderRadius: "50%",
         borderLeftColor: "#09f",
         animation: "spin 1s linear infinite",
@@ -401,7 +406,29 @@ const MatterSimulation = () => {
     }, [uploadedImage, similarImages]);
 
     return (
-        <div style={{ height: "100vh", background: !uploadedImage ? "radial-gradient(#ffffff, #000000)" : "none" }}>
+        <div>
+            {/* 背景動画 */}
+            {!uploadedImage && (
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                zIndex: -1,
+                }}
+            >
+                <source src="/background.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+            )}
+
             {isLoading ? (
                 <div style={styles.loadingContainer}>
                 <p style={styles.loadingText}>準備中…</p>
