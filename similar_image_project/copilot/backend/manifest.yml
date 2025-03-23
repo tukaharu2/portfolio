@@ -35,9 +35,9 @@ network:
 # Optional fields for more advanced use-cases.
 #
 variables:
-    DYNAMODB_TABLE: similar-image-app-siapp-backend-ImageMetadataTable  
-    S3_BUCKET_NAME: similar-image-app-siapp-b-imagestoragebucketbucket-9ignaabzgqrh
-    SECRET_KEY: a3b1c2d4e5f67890abcdef12345678901234567890abcdef1234567890abcd                # Pass environment variables as key value pairs.
+    DYNAMODB_TABLE: your_table_name  
+    S3_BUCKET_NAME: your_bucket_name
+    SECRET_KEY: your_secret_key               # Pass environment variables as key value pairs.
   
 
 #secrets:                      # Pass secrets from AWS Systems Manager (SSM) Parameter Store.
