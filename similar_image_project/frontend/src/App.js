@@ -131,7 +131,7 @@ const MatterSimulation = () => {
         
         try {
             // バックエンドのreloadエンドポイントにPOSTリクエストを送信
-            const response = await fetch("http://simila-Publi-Q1g1koUTz9vW-1613792410.ap-northeast-1.elb.amazonaws.com/backend/reload", {
+            const response = await fetch("your_backend/reload", {
                 method: "POST",
                 body: formData
             });
@@ -159,7 +159,7 @@ const MatterSimulation = () => {
         formData.append("num_img", 200);
 
 
-        const response = await fetch("http://simila-Publi-Q1g1koUTz9vW-1613792410.ap-northeast-1.elb.amazonaws.com/backend/upload", {
+        const response = await fetch("your_backend/upload", {
             method: "POST",
             body: formData,
         });
@@ -178,7 +178,7 @@ const MatterSimulation = () => {
     // 画像保存処理
     const handleSave = async () => {
         
-        const response = await fetch("http://simila-Publi-Q1g1koUTz9vW-1613792410.ap-northeast-1.elb.amazonaws.com/backend/save_image", {
+        const response = await fetch("your_backend/save_image", {
             method: "POST",
             headers: { "Content-Type": "application/json" }
         });
